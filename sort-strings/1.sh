@@ -51,7 +51,7 @@ while read line; do
     | tr -d '\n'`" ]; then
     echo "処理終了：${count_line}行目で文字重複"
     exit 1
-  fi &
+  fi
 
   #3文字目が"a"なら処理しない
   if [ `echo ${line} | cut -d" " -f3` = "a" ]; then
