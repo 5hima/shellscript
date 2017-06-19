@@ -7,6 +7,7 @@ sort_function (){
 
 #文字の優先順位を決める
 ja_sy=(a i u e o)
+
   #ソート用配列の初期化
   moji_sort=()
 
