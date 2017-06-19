@@ -58,8 +58,8 @@ while read line; do
     continue
   fi
 
-#ソート関数に行ごとに読ませる。
-  sort_function ${line} &
+  #ソート関数に行ごとに読ませる。
+  sort_function ${line}
 
 done <$1
 
