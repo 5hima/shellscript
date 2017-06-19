@@ -7,15 +7,23 @@ binmode STDIN, ':encoding(cp932)';
 binmode STDOUT, ':encoding(cp932)';
 binmode STDERR, ':encoding(cp932)';
 
+#時間表示の定義
 my ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst) = localtime(time);
 $year += 1900;
 $mon +=1;
+
+#開始日時の表示
 print "start : ", $year, "\/", $mon, "\/", $mday, " ", $hour, ":", $min, ":", $sec, "\n";
 open(DATAFILE, "$ARGV[0]");
+
+#総行数と文字列別行数を数える変数の定義
 my $count_line = 0;
 my %moji_line_count = ();
 
+#1行ずつ読み込んでループ
 foreach (<DATAFILE>) {
+
+  #末尾の改行を削除
   chomp;
   $moji_line_count{$_}++;
   $_ =~ tr/aiueo/12345/;
