@@ -35,13 +35,13 @@ count_line=0
 #ファイルから1行ずつ読み込む
 while read line; do
 
-  #500行ごとに処理時間を出力
-  if [ $((${count_line}%500)) -eq 0 -a ${count_line} -ne 0 ]; then
-    echo "${count_line}行目：`date "+%Y/%m/%d %T"`" | sudo tee -a result.log
-  fi 
-
   #ファイル内の行数をカウント
   count_line=$(( ${count_line}+1 ))
+
+  #500行ごとに処理時間を出力
+  if [ $((${count_line}%500)) -eq 0 ]; then
+    echo "${count_line}行目：`date "+%Y/%m/%d %T"`" | sudo tee -a result.log
+  fi 
 
   #行中に重複した文字があればスクリプト停止
   if [ -n "`echo ${line} \
