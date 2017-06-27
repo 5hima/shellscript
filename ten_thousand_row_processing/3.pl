@@ -50,7 +50,7 @@ foreach (<DATAFILE>) {
   #重複文字があれば停止
   foreach (@moji_sort) {
     $moji_count{$_}++;
-    exit 1 if $moji_count{$_} >= 2;
+    exit 0 if $moji_count{$_} >= 2;
   };
   
   #3文字目が"a"であれば処理しない
